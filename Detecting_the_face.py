@@ -20,16 +20,11 @@ def face_detector(img, size=0.5):
         roi = cv2.resize(roi, (200, 200))
     return img, roi
 
-
 # Open Webcam
 cap = cv2.VideoCapture(0)
-
 while True:
-
     ret, frame = cap.read()
-    
     image, face = face_detector(frame)
-    
     try:
         face = cv2.cvtColor(face, cv2.COLOR_BGR2GRAY)
 
@@ -43,16 +38,15 @@ while True:
             
         cv2.putText(image, display_string, (100, 120), cv2.FONT_HERSHEY_COMPLEX, 1, (255,120,150), 2)
         
-        if confidence >94:
+        if confidence >90:
             cv2.putText(image, "Hey Shivam", (250, 450), cv2.FONT_HERSHEY_COMPLEX, 1, (0,255,0), 2)
             cv2.imshow('Face Recognition', image )
             
             sendmail()
+            whatsappmsg()
             print("Successfully sent a mail")
+            print("Successfully sent a whatsapp message")
             break
-            
-            
-            
         else:
             
             cv2.putText(image, "I dont know, who r u", (250, 450), cv2.FONT_HERSHEY_COMPLEX, 1, (0,0,255), 2)
