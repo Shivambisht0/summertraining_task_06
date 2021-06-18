@@ -4,5 +4,5 @@ def sendmail():
     server = smtplib.SMTP_SSL("smtp.gmail.com",465)
     server.login("spartaking369@gmail.com","*******")
     #server.sendmail(sender_mail,reciever_mail,message)
-    server.sendmail("spartaking369@gmail.com","bishtshiva200@gmail.com","HI ")
+    server.sendmail("spartaking369@gmail.com","bishtshiva200@gmail.com","This is face of Shivam Bist")
     server.quit()
